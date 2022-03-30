@@ -45,23 +45,25 @@ void blinkRedLed() {
 	// actioned ONCE by the compiler before moving the
 	// variable outside of the loop
     static unsigned long redMillis = millis();
+    unsigned long instant = millis();	// (noun form of instant) - capture the precise moment of time now, local to this function;
 
 	// If enough time has passed (500mS) we toggle the flash
-    if (millis() - redMillis > 500) {
+    if (instamt - redMillis > 500) {
 		// Set the red LED to whatever it is NOT now
         digitalWrite(redLED, !digitalRead(redLED));
 		
 		// We must reset the local millis variable
-        redMillis = millis();
+        redMillis = instant;
     }
 }
 
 // GREEN led blink - same as above, just runs faster
 void blinkGrnLed() {
     static unsigned long grnMillis = millis();
+    unsigned long instant = millis();	// (noun form of instant) - capture the precise moment of time now, local to this function;
 
     if (millis() - grnMillis > 100) {
         digitalWrite(grnLED, !digitalRead(grnLED));
-        grnMillis = millis();
+        grnMillis = instant;
     }
 }
